@@ -22,16 +22,16 @@ class CategoryController extends Controller
         //$accessControleService = $this->get('tcn.access_control.service');
 
         //category exists
-        if ($accessControleService->isCategoryAvailable($slug)) {
-            // show the category page
-            $response = $this->render('TcnCommonBundle:Category:category.index.html.twig', array(
-                //'data' => $data,
-                'category' => $slug//$data['categories'][$slug]
-            ));
-            //$response->setSharedMaxAge(intval($this->container->getParameter('cache_length')));
-        } else {
-            throw $this->createNotFoundException('Sorry not existing');
-        }
+        //if ($accessControleService->isCategoryAvailable($slug)) {
+        // show the category page
+        $response = $this->render('ExsituTcnCommonBundle:Category:category.index.html.twig', array(
+            //'data' => $data,
+            'category' => $slug//$data['categories'][$slug]
+        ));
+        //$response->setSharedMaxAge(intval($this->container->getParameter('cache_length')));
+//        } else {
+//            throw $this->createNotFoundException('Sorry not existing');
+//        }
 
         return $response;
     }
