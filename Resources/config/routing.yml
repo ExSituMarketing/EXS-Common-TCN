@@ -2,3 +2,13 @@ exsitu_tcn_common_category:
     path:  /{slug}/
     defaults: { _controller: ExsituTcnCommonBundle:Category:index }
     schemes:  [https|http]
+
+exsitu_tcn_common_review:
+    path:  /{categorySlug}/{reviewSlug}
+    defaults: { _controller: ExsituTcnCommonBundle:Review:index }
+    schemes:  [https|http]
+
+exsitu_tcn_common_default:
+    path:  /
+    defaults: { _controller: ExsituTcnCommonBundle:Default:index }
+    schemes:  [https|http]

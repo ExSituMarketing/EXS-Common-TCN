@@ -16,8 +16,7 @@ class CategoryController extends Controller
      */
     public function indexAction($slug = '')
     {
-        //$data = $this->get('tcn.data.service')->getAllData();
-
+        $data = $this->get('tcn.data.service')->getAllData();
         /** @var AccessControleService $accessControleService */
         //$accessControleService = $this->get('tcn.access_control.service');
 
@@ -25,7 +24,7 @@ class CategoryController extends Controller
         //if ($accessControleService->isCategoryAvailable($slug)) {
         // show the category page
         $response = $this->render('ExsituTcnCommonBundle:Category:category.index.html.twig', array(
-            //'data' => $data,
+            'data' => $data,
             'category' => $slug//$data['categories'][$slug]
         ));
         //$response->setSharedMaxAge(intval($this->container->getParameter('cache_length')));
