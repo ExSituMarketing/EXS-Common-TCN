@@ -1,0 +1,29 @@
+{
+    "name": "ExSituMarketing/EXS-Common-TCN",
+    "type": "symfony-bundle",
+    "description": "Common core code for TCN properties",
+    "keywords": ["common", "code", "core", "bundle"],
+    "homepage": "https://github.com/ExSituMarketing/EXS-Common-TCN",
+    "authors": [
+        {
+            "name": "Charles Weiss",
+            "email": "charles@ex-situ.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.9",
+        "symfony/symfony": "2.8.*",
+        "guzzlehttp/guzzle": "~6.0",
+        "mobiledetect/mobiledetectlib": "^2.8"
+
+    },
+    "autoload": {
+        "psr-4": { "Exsitu\\TcnCommonBundle\\": "" }
+    },
+    "extra" : {
+        "branch-alias" : {
+            "dev-master" : "master"
+        }
+    },
+    "minimum-stability": "dev"
+}

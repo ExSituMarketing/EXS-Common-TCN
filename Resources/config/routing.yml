@@ -1,0 +1,4 @@
+exsitu_tcn_common_category:
+    path:  /{slug}/
+    defaults: { _controller: ExsituTcnCommonBundle:Category:index }
+    schemes:  [https|http]
