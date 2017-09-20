@@ -1,9 +1,9 @@
 <?php
 
-namespace Exsitu\TcnCommonBundle\Service;
+namespace exs\TcnCommonBundle\Service;
 
 use AppBundle\Data\ProductModel;
-use Exsitu\TcnCommonBundle\Model\AbstractProductModel;
+use exs\TcnCommonBundle\Model\AbstractProductModel;
 use Symfony\Component\Finder\Finder;
 /**
  * Created by PhpStorm.
@@ -19,7 +19,7 @@ class TcnDataService
     protected $cacheKey;
 
     /**
-     * MyfavDataService constructor.
+     * TcnDataService constructor.
      * @param \Memcached $memcached
      * @param string $basePath
      * @param string $namespace
@@ -146,7 +146,7 @@ class TcnDataService
             $class = $ns . '\\' . $file->getBasename('.php');
 
             $r = new \ReflectionClass($class);
-            if ($r->isSubclassOf('Exsitu\TcnCommonBundle\Model\\' . $model)) {
+            if ($r->isSubclassOf('exs\TcnCommonBundle\Model\\' . $model)) {
                 $models[] = new $class;
             }
         }
@@ -159,10 +159,10 @@ class TcnDataService
      * @param string $slug
      * @return mixed|null
      */
-    public function getCatFromSiteSlug($cats = array(), $slug = '')
+    public function getCatFromProductSlug($cats = array(), $slug = '')
     {
         foreach ($cats as $cat) {
-            if (in_array($slug, $cat->getSites())) {
+            if (in_array($slug, $cat->getProducts())) {
                 return $cat;
             }
         }
@@ -183,7 +183,7 @@ class TcnDataService
         ) {
             return $cats[$site->getCategorySlug()];
         } else {
-            return $this->getCatFromSiteSlug($cats,$site->getSlug());
+            return $this->getCatFromProductSlug($cats,$site->getSlug());
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Exsitu\TcnCommonBundle\Model;
+namespace exs\TcnCommonBundle\Model;
 
 /**
  * Product Model
