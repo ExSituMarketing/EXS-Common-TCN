@@ -1,6 +1,6 @@
 <?php
 
-namespace Exsitu\TcnCommonBundle\Model;
+namespace exs\TcnCommonBundle\Model;
 
 /**
  * Product Model
@@ -16,7 +16,7 @@ abstract class AbstractCategoryModel
     /** @var  string */
     protected $slug;
     /** @var  string[] */
-    protected $sites;
+    protected $products;
 
     /**
      * @return string
@@ -37,8 +37,8 @@ abstract class AbstractCategoryModel
     /**
      * @return string[]
      */
-    public function getSites()
+    public function getProducts()
     {
-        return $this->sites;
+        return $this->products;
     }
 }

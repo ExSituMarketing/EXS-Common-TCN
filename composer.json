@@ -16,7 +16,7 @@
 
     },
     "autoload": {
-        "psr-4": { "Exsitu\\TcnCommonBundle\\": "" }
+        "psr-4": { "exs\\TcnCommonBundle\\": "" }
     },
     "extra" : {
         "branch-alias" : {

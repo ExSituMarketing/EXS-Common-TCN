@@ -1,10 +1,10 @@
 <?php
 
-namespace Exsitu\TcnCommonBundle\Service;
+namespace exs\TcnCommonBundle\Service;
 
 /**
  * Class AccessControlService
- * @package Exsitu\TcnCommonBundle\Service
+ * @package exs\TcnCommonBundle\Service
  */
 class AccessControlService
 {

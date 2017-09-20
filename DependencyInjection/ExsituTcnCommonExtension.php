@@ -1,6 +1,6 @@
 <?php
 
-namespace Exsitu\TcnCommonBundle\DependencyInjection;
+namespace exs\TcnCommonBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

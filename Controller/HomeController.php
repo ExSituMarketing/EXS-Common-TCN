@@ -1,6 +1,6 @@
 <?php
 
-namespace Exsitu\TcnCommonBundle\Controller;
+namespace exs\TcnCommonBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,16 +15,13 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        //$data = $this->get('myfav.data.service')->getAllData();
-        // lang slug is not empty and does not exists
-//        if($lang != '' && !isset($data['languages'][$lang])){
-//            // 404
-//            throw new NotFoundHttpException();
-//        }
+        $data = $this->get('tcn.data.service')->getAllData();
+
+        // TODO: get information about the sites for data
+
         // show default page with slug (slug defaulted to '')
-        $response = $this->render('ExsituTcnCommonBundle:Default:default.index.html.twig', array(
-            'lang' => 'BLAJ'//$lang,
-            //'data' => $data
+        $response = $this->render('ExsituTcnCommonBundle:Home:home.index.html.twig', array(
+            'data' => $data
         ));
         //$response->setSharedMaxAge(intval($this->container->getParameter('cache_length')));
         return $response;

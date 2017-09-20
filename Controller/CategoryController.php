@@ -1,12 +1,12 @@
 <?php
 
-namespace Exsitu\TcnCommonBundle\Controller;
+namespace exs\TcnCommonBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Class CategoryController
- * @package Exsitu\TcnCommonBundle\Controller
+ * @package exs\TcnCommonBundle\Controller
  */
 class CategoryController extends Controller
 {
@@ -25,7 +25,8 @@ class CategoryController extends Controller
         // show the category page
         $response = $this->render('ExsituTcnCommonBundle:Category:category.index.html.twig', array(
             'data' => $data,
-            'category' => $slug//$data['categories'][$slug]
+            'catSlug' => $data['categories'][$slug]->getSlug(),
+            'products' => $data['categories'][$slug]->getProducts()
         ));
         //$response->setSharedMaxAge(intval($this->container->getParameter('cache_length')));
 //        } else {
