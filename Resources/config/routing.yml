@@ -3,6 +3,11 @@ exsitu_tcn_common_search_json:
     defaults: { _controller: ExsituTcnCommonBundle:Search:allProducts }
     schemes:  [https|http]
 
+exsitu_tcn_common_search_result:
+    path:  /search/{query}
+    defaults: { _controller: ExsituTcnCommonBundle:Search:index }
+    schemes:  [https|http]
+
 exsitu_tcn_common_category:
     path:  /{slug}/
     defaults: { _controller: ExsituTcnCommonBundle:Category:index }

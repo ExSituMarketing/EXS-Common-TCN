@@ -27,7 +27,7 @@ if (search) {
             if (list.children.length == 0 && searchTerm.length < 3) {
                 SIMPLESEARCH.main.noResults("Enter 3 or more chars")
             } else {
-                window.location = "/search.php?q=" + searchTerm;
+                window.location = "/search/" + searchTerm;
             }
         }
 
@@ -63,7 +63,7 @@ if (search) {
                 list.removeChild(list.lastChild);
             }
         } else {
-            window.location = "/search.php?q=" + searchTerm;
+            window.location = "/search/" + searchTerm;
         }
     });
 }

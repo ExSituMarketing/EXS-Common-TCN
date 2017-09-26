@@ -4,6 +4,7 @@ namespace exs\TcnCommonBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class SearchController
@@ -22,6 +23,45 @@ class SearchController extends Controller
         $response->setContent(
             'var data=' . \json_encode($this->formatdataForSearch($data)) . ';'
         );
+        return $response;
+    }
+
+    /**
+     * Search result page
+     *
+     * @param $query
+     * @return Response
+     *
+     * @Route("/search/", defaults={"query" = null})
+     * @Route("/search/{query}", defaults={"query" = null})
+     */
+    public function indexAction($query)
+    {
+        $data = $this->get('tcn.data.service')->getAllData();
+
+        if (!empty($data)) {
+            $results = array_filter($data['products'], function($value) use ($query) {
+                if (strpos($value->getSlug(), $query) !== false) {
+                    return $value->getSlug();
+                }
+            });
+
+            $results = array_keys($results);
+
+            if (count($results) < 1) {
+                $results = null;
+            }
+
+            // display the review
+            $response = $this->render('ExsituTcnCommonBundle:Search:search.index.html.twig', array(
+                'data' => $data,
+                'searchResults' => $results,
+                'searchTerm' => $query,
+                'products' => $data['home']->getTopProducts()
+            ));
+        } else {
+            throw $this->createNotFoundException('Sorry the page does not exist');
+        }
         return $response;
     }
 
