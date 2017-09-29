@@ -4,3 +4,10 @@
 .DS_Store
 composer.phar
 /nbproject/
+phpunit.xml
+vendor
+composer.phar
+composer.lock
+bin
+Tests/Coverage
+.idea

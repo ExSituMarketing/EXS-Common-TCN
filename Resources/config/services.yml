@@ -23,3 +23,11 @@ services:
         class: 'exs\TcnCommonBundle\Twig\ArrayExtension'
         tags:
             - { name: twig.extension }
+
+    exsitu.twig.extension.data:
+        class: 'exs\TcnCommonBundle\Twig\DataExtension'
+        arguments:
+            - '@tcn.data.service'
+        public: false
+        tags:
+            - { name: 'twig.extension' }
