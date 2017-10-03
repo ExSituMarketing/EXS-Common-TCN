@@ -31,3 +31,12 @@ services:
         public: false
         tags:
             - { name: 'twig.extension' }
+
+    # Twig extension insert version flag in assets
+    twig.extension.assetic_version:
+        class: 'exs\TcnCommonBundle\Twig\AssetVersionExtension'
+        arguments:
+            - '@kernel'
+            - '%custom_asset_version%'
+        tags:
+            - { name: 'twig.extension' }

@@ -1,5 +1,5 @@
 exsitu_tcn_common_search_json:
-    path:  /data.js
+    path:  /ver{hash}/data/search
     defaults: { _controller: ExsituTcnCommonBundle:Search:allProducts }
     schemes:  [https|http]
 
@@ -8,14 +8,24 @@ exsitu_tcn_common_search_result:
     defaults: { _controller: ExsituTcnCommonBundle:Search:index }
     schemes:  [https|http]
 
-exsitu_tcn_common_category:
-    path:  /{slug}/
-    defaults: { _controller: ExsituTcnCommonBundle:Category:index }
-    schemes:  [https|http]
-
 exsitu_tcn_common_review:
     path:  /{categorySlug}/{reviewSlug}
     defaults: { _controller: ExsituTcnCommonBundle:Review:index }
+    schemes:  [https|http]
+
+topvr_tcn_sitemap:
+    path:  /sitemap
+    defaults: { _controller: ExsituTcnCommonBundle:Sitemap:sitemap }
+    schemes:  [https|http]
+
+topvr_tcn_xmlSitemap:
+    path:  /sitemap.xml
+    defaults: { _controller: ExsituTcnCommonBundle:Sitemap:xmlSitemap }
+    schemes:  [https|http]
+
+exsitu_tcn_common_category:
+    path:  /{slug}/
+    defaults: { _controller: ExsituTcnCommonBundle:Category:index }
     schemes:  [https|http]
 
 exsitu_tcn_common_home:

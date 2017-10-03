@@ -15,7 +15,7 @@ class SearchController extends Controller
     /**
      * @return Response
      */
-    public function allProductsAction()
+    public function allProductsAction($hash = '')
     {
         $data = $this->get('tcn.data.service')->getAllData();
 
@@ -23,6 +23,9 @@ class SearchController extends Controller
         $response->setContent(
             'var data=' . \json_encode($this->formatdataForSearch($data)) . ';'
         );
+        $date = new \DateTime();
+        $date->modify('+14 days');
+        $response->setExpires($date);
         return $response;
     }
 
