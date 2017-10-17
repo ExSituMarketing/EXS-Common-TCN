@@ -14,7 +14,7 @@ exsitu_tcn_common_review:
     schemes:  [https|http]
 
 topvr_tcn_sitemap:
-    path:  /sitemap
+    path:  /sitemap.html
     defaults: { _controller: ExsituTcnCommonBundle:Sitemap:sitemap }
     schemes:  [https|http]
 
