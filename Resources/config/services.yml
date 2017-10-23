@@ -40,3 +40,10 @@ services:
             - '%custom_asset_version%'
         tags:
             - { name: 'twig.extension' }
+
+    # form
+    app.manager.contact:
+            class: 'exs\TcnCommonBundle\Service\Manager\ContactManager'
+            arguments:
+                - '@form.factory'
+                - '@mailer'

@@ -1,3 +1,8 @@
+exsitu_tcn_common_contact_form:
+    path:  /contact
+    defaults: { _controller: ExsituTcnCommonBundle:Contact:index }
+    schemes:  [https|http]
+
 exsitu_tcn_common_search_json:
     path:  /ver{hash}/data/search
     defaults: { _controller: ExsituTcnCommonBundle:Search:allProducts }
