@@ -1,4 +1,49 @@
 services:
 #    tcn_common.example:
-#        class: Exsitu\TcnCommonBundle\Example
+#        class: exs\TcnCommonBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    memcached:
+        class: '\Memcached'
+
+    tcn.data.service:
+        class: exs\TcnCommonBundle\Service\TcnDataService
+        arguments:
+          - "@memcached"
+          - "%tcn.data.dir%"
+          - "%tcn.data.namespace%"
+          - "%tcn.data.cacheKey%"
+
+#    tcn.access_control.service:
+#            class: exs\TcnCommonBundle\Service\AccessControleService
+#            arguments:
+#              - "@tcn.data.service"
+
+    exsitu.twig.extension.array:
+        class: 'exs\TcnCommonBundle\Twig\ArrayExtension'
+        tags:
+            - { name: twig.extension }
+
+    exsitu.twig.extension.data:
+        class: 'exs\TcnCommonBundle\Twig\DataExtension'
+        arguments:
+            - '@tcn.data.service'
+        public: false
+        tags:
+            - { name: 'twig.extension' }
+
+    # Twig extension insert version flag in assets
+    twig.extension.assetic_version:
+        class: 'exs\TcnCommonBundle\Twig\AssetVersionExtension'
+        arguments:
+            - '@kernel'
+            - '%custom_asset_version%'
+        tags:
+            - { name: 'twig.extension' }
+
+    # form
+    app.manager.contact:
+            class: 'exs\TcnCommonBundle\Service\Manager\ContactManager'
+            arguments:
+                - '@form.factory'
+                - '@mailer'

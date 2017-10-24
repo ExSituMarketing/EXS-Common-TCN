@@ -1,4 +1,39 @@
+exsitu_tcn_common_contact_form:
+    path:  /contact
+    defaults: { _controller: ExsituTcnCommonBundle:Contact:index }
+    schemes:  [https|http]
+
+exsitu_tcn_common_search_json:
+    path:  /ver{hash}/data/search
+    defaults: { _controller: ExsituTcnCommonBundle:Search:allProducts }
+    schemes:  [https|http]
+
+exsitu_tcn_common_search_result:
+    path:  /search/{query}
+    defaults: { _controller: ExsituTcnCommonBundle:Search:index }
+    schemes:  [https|http]
+
+exsitu_tcn_common_review:
+    path:  /{categorySlug}/{reviewSlug}
+    defaults: { _controller: ExsituTcnCommonBundle:Review:index }
+    schemes:  [https|http]
+
+topvr_tcn_sitemap:
+    path:  /sitemap.html
+    defaults: { _controller: ExsituTcnCommonBundle:Sitemap:sitemap }
+    schemes:  [https|http]
+
+topvr_tcn_xmlSitemap:
+    path:  /sitemap.xml
+    defaults: { _controller: ExsituTcnCommonBundle:Sitemap:xmlSitemap }
+    schemes:  [https|http]
+
 exsitu_tcn_common_category:
     path:  /{slug}/
     defaults: { _controller: ExsituTcnCommonBundle:Category:index }
+    schemes:  [https|http]
+
+exsitu_tcn_common_home:
+    path:  /
+    defaults: { _controller: ExsituTcnCommonBundle:Home:index }
     schemes:  [https|http]

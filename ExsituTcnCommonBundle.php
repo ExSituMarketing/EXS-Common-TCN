@@ -1,6 +1,6 @@
 <?php
 
-namespace Exsitu\TcnCommonBundle;
+namespace exs\TcnCommonBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
