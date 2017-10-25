@@ -47,3 +47,4 @@ services:
             arguments:
                 - '@form.factory'
                 - '@mailer'
+                - '%mailer_to_address%'

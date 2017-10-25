@@ -27,14 +27,21 @@ class ContactManager
     protected $formFactory;
 
     /**
+     * @var string
+     */
+    protected $mailerTo;
+
+    /**
      * ContactManager constructor.
      * @param FormFactory $formFactory
      * @param \Swift_Mailer $mailer
+     * @param string $mailerTo
      */
-    public function __construct(FormFactory $formFactory, \Swift_Mailer $mailer)
+    public function __construct(FormFactory $formFactory, \Swift_Mailer $mailer, $mailerTo)
     {
         $this->formFactory = $formFactory;
         $this->mailer = $mailer;
+        $this->mailerTo = $mailerTo;
     }
 
     /**
@@ -66,17 +73,21 @@ class ContactManager
      *
      * @return bool
      */
-    public function sendContactMail($htmlBody, $textBody, $title = 'Contact Form', $fromEmail = 'support@ex-situ.com', $toEmail)
+    public function sendContactMail($htmlBody, $textBody, $title = 'Contact Form', $fromEmail, $toEmail = null)
     {
         if (empty($htmlBody) || empty($toEmail)) {
             return false;
+        }
+
+        if (!empty($toEmail)) {
+            $this->mailerTo = $toEmail;
         }
 
         $message = \Swift_Message::newInstance()
             ->setContentType('text/html')
             ->setSubject($title)
             ->setFrom($fromEmail)
-            ->setTo($toEmail)
+            ->setTo($this->mailerTo)
             ->setBody($htmlBody)
             ->addPart($textBody);
 

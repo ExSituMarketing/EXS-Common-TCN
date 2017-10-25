@@ -37,7 +37,8 @@ class ContactController extends Controller
             'form' => $form,
             'data' => $data,
             'success' => $success,
-            'pageTitle' => 'Contact Us'
+            'pageTitle' => 'Contact Us',
+            'robotValue' => 'noindex, follow'
         ]);
     }
 }
