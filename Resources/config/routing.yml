@@ -13,10 +13,10 @@ exsitu_tcn_common_search_result:
     defaults: { _controller: ExsituTcnCommonBundle:Search:index }
     schemes:  [https|http]
 
-exsitu_tcn_common_review:
-    path:  /{categorySlug}/{reviewSlug}
-    defaults: { _controller: ExsituTcnCommonBundle:Review:index }
-    schemes:  [https|http]
+#exsitu_tcn_common_review:
+#    path:  /{categorySlug}/{reviewSlug}
+#    defaults: { _controller: ExsituTcnCommonBundle:Review:index }
+#    schemes:  [https|http]
 
 topvr_tcn_sitemap:
     path:  /sitemap.html
