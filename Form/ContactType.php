@@ -27,11 +27,6 @@ class ContactType extends AbstractType
                 ],
                 'max_length' => 255
             ])
-            ->add('sendTo', HiddenType::class, [
-                'label' => false,
-                'required' => false,
-                'max_length' => 255
-            ])
             ->add('message', TextareaType::class, [
                 'label' => 'Comments, Questions, Rants, etc.....',
                 'required' => true,

@@ -75,7 +75,7 @@ class ContactManager
      */
     public function sendContactMail($htmlBody, $textBody, $title = 'Contact Form', $fromEmail, $toEmail = null)
     {
-        if (empty($htmlBody) || empty($toEmail)) {
+        if (empty($htmlBody) || empty($fromEmail)) {
             return false;
         }
 

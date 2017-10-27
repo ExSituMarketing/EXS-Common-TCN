@@ -28,7 +28,7 @@ class ContactController extends Controller
         $success = null;
 
         if (is_array($form)) {
-            $success = $this->get('app.manager.contact')->sendContactMail($form['message'], null, 'Contact Form', $form['email'], 'support@topvr.guide');
+            $success = $this->get('app.manager.contact')->sendContactMail($form['message'], null, 'Contact Form', $form['email']);
             $request = new Request();
             $form = $this->get('app.manager.contact')->handleForm($request);
         }
