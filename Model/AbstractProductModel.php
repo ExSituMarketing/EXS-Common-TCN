@@ -21,7 +21,16 @@ abstract class AbstractProductModel
     protected $categorySlug = null;
     /** @var  string Main category of the product (model) */
     protected $category;
+    /** @var bool Whether site link should be hidden or not */
+    protected $openSite = false;
 
+    /**
+     * @return bool
+     */
+    public function isOpenSite()
+    {
+        return $this->openSite;
+    }
 
     /**
      * @return string
