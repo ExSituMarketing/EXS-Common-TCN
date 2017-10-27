@@ -29,14 +29,27 @@ class ContactController extends Controller
 
         if (is_array($form)) {
             $success = $this->get('app.manager.contact')->sendContactMail($form['message'], null, 'Contact Form', $form['email']);
-            $request = new Request();
-            $form = $this->get('app.manager.contact')->handleForm($request);
+            if ($success) {
+                return $this->redirectToRoute("exsitu_tcn_common_contact_success");
+            }
         }
 
         return $this->render('ExsituTcnCommonBundle:Contact:contact.index.html.twig', [
             'form' => $form,
             'data' => $data,
             'success' => $success,
+            'pageTitle' => 'Contact Us',
+            'robotValue' => 'noindex, follow'
+        ]);
+    }
+
+    public function successAction()
+    {
+        $data = $this->get('tcn.data.service')->getAllData();
+
+        return $this->render('ExsituTcnCommonBundle:Contact:contact.index.html.twig', [
+            'data' => $data,
+            'success' => true,
             'pageTitle' => 'Contact Us',
             'robotValue' => 'noindex, follow'
         ]);
