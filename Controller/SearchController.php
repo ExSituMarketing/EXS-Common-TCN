@@ -74,19 +74,20 @@ class SearchController extends Controller
         foreach ($data['products'] as $product) {
             if($product->getName()){
                 //site has a review and a category
-                if (strlen($product->getOverview()) > 0 && $product->getCategory()) {
-                    // generate review url
-                    $link = $this->generateUrl('exsitu_tcn_common_review',
-                        [
-                            'categorySlug' => $product->getCategory()->getSlug(),
-                            'reviewSlug' => $product->getSlug()
-                        ],
-                        true
-                    );
-                } else {
-                    // else generate tourlink url
-                    $link = $product->getTourLink();
-                }
+//                if (strlen($product->getOverview()) > 0 && $product->getCategory()) {
+//                    // generate review url
+//                    $link = $this->generateUrl('exsitu_tcn_common_review',
+//                        [
+//                            'categorySlug' => $product->getCategory()->getSlug(),
+//                            'reviewSlug' => $product->getSlug()
+//                        ],
+//                        true
+//                    );
+//                } else {
+//                    // else generate tourlink url
+//                    $link = $product->getTourLink();
+//                }
+                $link = $product->getTourLink();
 
                 $formatted[] = [
                     'name' => $product->getName(),
