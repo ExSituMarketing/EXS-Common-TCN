@@ -19,6 +19,8 @@ abstract class AbstractCategoryModel
     protected $products;
     /** @var  string Title shown on the browser tab */
     protected $pageTitle;
+    /** @var  string Meta description */
+    protected $metaDescription;
 
     /**
      * @return string
@@ -50,5 +52,13 @@ abstract class AbstractCategoryModel
     public function getProducts()
     {
         return $this->products;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
     }
 }

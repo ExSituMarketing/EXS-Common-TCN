@@ -19,6 +19,8 @@ abstract class AbstractHomeModel
     protected $legalName;
     /** @var  string Tab/Page title */
     protected $pageTitle;
+    /** @var  string Meta description */
+    protected $metaDescription;
 
     /**
      * @return string
@@ -50,5 +52,13 @@ abstract class AbstractHomeModel
     public function getPageTitle()
     {
         return $this->pageTitle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
     }
 }
