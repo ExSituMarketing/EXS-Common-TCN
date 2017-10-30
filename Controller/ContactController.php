@@ -28,7 +28,8 @@ class ContactController extends Controller
         $success = null;
 
         if (is_array($form)) {
-            $success = $this->get('app.manager.contact')->sendContactMail($form['message'], null, 'Contact Form', $form['email']);
+            $site = $data['home']->getName();
+            $success = $this->get('app.manager.contact')->sendContactMail($form['message'], null, $site . ' Contact Form', $form['email']);
             if ($success) {
                 return $this->redirectToRoute("exsitu_tcn_common_contact_success");
             }
