@@ -17,6 +17,16 @@ abstract class AbstractCategoryModel
     protected $slug;
     /** @var  string[] */
     protected $products;
+    /** @var  string Title shown on the browser tab */
+    protected $pageTitle;
+
+    /**
+     * @return string
+     */
+    public function getPageTitle()
+    {
+        return $this->pageTitle;
+    }
 
     /**
      * @return string
