@@ -5,6 +5,7 @@ namespace exs\TcnCommonBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class HomeController extends Controller
 {
@@ -21,7 +22,8 @@ class HomeController extends Controller
 
         // show default page with slug (slug defaulted to '')
         $response = $this->render('ExsituTcnCommonBundle:Home:home.index.html.twig', array(
-            'data' => $data
+            'data' => $data,
+            'canonical' => $this->get('router')->generate('exsitu_tcn_common_home', array(), UrlGeneratorInterface::ABSOLUTE_URL)
         ));
         //$response->setSharedMaxAge(intval($this->container->getParameter('cache_length')));
         return $response;

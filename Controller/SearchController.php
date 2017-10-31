@@ -5,6 +5,7 @@ namespace exs\TcnCommonBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class SearchController
@@ -61,7 +62,9 @@ class SearchController extends Controller
                 'searchResults' => $results,
                 'searchTerm' => $query,
                 'products' => $data['home']->getTopProducts(),
-                'pageClass' => 'search-page'
+                'pageClass' => 'search-page',
+                'robotValue' => 'noindex, follow',
+                'canonical' => $this->get('router')->generate('exsitu_tcn_common_home', array(), UrlGeneratorInterface::ABSOLUTE_URL)
             ));
         } else {
             throw $this->createNotFoundException('Sorry the page does not exist');

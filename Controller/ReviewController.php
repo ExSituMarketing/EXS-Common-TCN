@@ -3,6 +3,7 @@
 namespace exs\TcnCommonBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class ReviewController
@@ -23,7 +24,11 @@ class ReviewController extends Controller
             $response = $this->render('ExsituTcnCommonBundle:Review:review.index.html.twig', array(
                 'data' => $data,
                 'category' => $data['categories'][$categorySlug],
-                'review' => $data['products'][$reviewSlug]
+                'review' => $data['products'][$reviewSlug],
+                'canonical' => $this->get('router')->generate('exsitu_tcn_common_review', array(
+                    'categorySlug' => $data['categories'][$categorySlug]->getSlug(),
+                    'reviewSlug' => $data['products'][$reviewSlug]['slug']
+                ), UrlGeneratorInterface::ABSOLUTE_URL)
             ));
         } else {
             throw $this->createNotFoundException('Sorry the page does not exist');

@@ -1,26 +1,26 @@
 {% if pageClass|default('index-page') == 'index-page' %}
     {% set metaDescription = data.home.metaDescription %}
     {# on default page #}
-    <link rel="canonical" href="https://{{ global_property_url }}/{{ lang|default('')==''?'':lang~'/' }}" />
+    {#<link rel="canonical" href="https://{{ global_property_url }}/{{ lang|default('')==''?'':lang~'/' }}" />#}
 
 {% elseif pageClass|default('index-page') == 'category-page' %}
     {% set metaDescription = data.categories[catSlug].metaDescription %}
-    <link rel="canonical" href="https://{{ global_property_url }}/{{ catSlug }}/" />
+    {#<link rel="canonical" href="https://{{ global_property_url }}/{{ catSlug }}/" />#}
 
-{% elseif pageClass|default('index-page') == 'review-page' %}
-    <link rel="canonical" href="https://{{ global_property_url }}/{{ category.slug}}/{{review.slug}}/" />
+{#{% elseif pageClass|default('index-page') == 'review-page' %}#}
+    {#<link rel="canonical" href="https://{{ global_property_url }}/{{ category.slug}}/{{review.slug}}/" />#}
 
-{% elseif pageClass|default('index-page') == 'contact-page' %}
-    <link rel="canonical" href="{{ url('exsitu_tcn_common_contact_form') }}" />
+{#{% elseif pageClass|default('index-page') == 'contact-page' %}#}
+    {#<link rel="canonical" href="{{ url('exsitu_tcn_common_contact_form') }}" />#}
 
-{% elseif pageClass|default('index-page') == 'contact-success-page' %}
-    <link rel="canonical" href="{{ url('exsitu_tcn_common_contact_success') }}" />
+{#{% elseif pageClass|default('index-page') == 'contact-success-page' %}#}
+    {#<link rel="canonical" href="{{ url('exsitu_tcn_common_contact_success') }}" />#}
 
-{% elseif pageClass|default('index-page') == 'search-page' %}
-    <link rel="canonical" href="https://{{ global_property_url }}/" />
+{#{% elseif pageClass|default('index-page') == 'search-page' %}#}
+    {#<link rel="canonical" href="https://{{ global_property_url }}/" />#}
 
-{% else %}
-    <link rel="canonical" href="{{ url(pageClass) }}" />
+{#{% elseif pageClass is defined %}#}
+    {#<link rel="canonical" href="{{ url(pageClass) }}" />#}
 {% endif %}
 {% if metaDescription|default('') != '' %}
     <meta name="description" content="{{ metaDescription|raw }}">

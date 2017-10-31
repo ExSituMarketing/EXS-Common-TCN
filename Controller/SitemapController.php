@@ -3,6 +3,7 @@
 namespace exs\TcnCommonBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class SitemapController
@@ -21,7 +22,8 @@ class SitemapController extends Controller
             $response = $this->render('@ExsituTcnCommon/Sitemap/sitemap.html.twig', array(
                 'data' => $data,
                 'robotValue' => 'noindex, follow',
-                'pageClass' => 'topvr_tcn_sitemap'
+                'pageClass' => 'topvr_tcn_sitemap',
+                'canonical' => $this->get('router')->generate('topvr_tcn_sitemap', array(), UrlGeneratorInterface::ABSOLUTE_URL)
             ));
 
         } else {

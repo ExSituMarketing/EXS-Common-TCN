@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class DefaultController
@@ -41,7 +42,8 @@ class ContactController extends Controller
             'success' => $success,
             'pageTitle' => 'Contact Us',
             'pageClass' => 'contact-page',
-            'robotValue' => 'noindex, follow'
+            'robotValue' => 'noindex, follow',
+            'canonical' => $this->get('router')->generate('exsitu_tcn_common_contact_form', array(), UrlGeneratorInterface::ABSOLUTE_URL)
         ]);
     }
 
@@ -54,7 +56,8 @@ class ContactController extends Controller
             'success' => true,
             'pageTitle' => 'Contact Us',
             'pageClass' => 'contact-success-page',
-            'robotValue' => 'noindex, follow'
+            'robotValue' => 'noindex, follow',
+            'canonical' => $this->get('router')->generate('exsitu_tcn_common_contact_success', array(), UrlGeneratorInterface::ABSOLUTE_URL)
         ]);
     }
 }
