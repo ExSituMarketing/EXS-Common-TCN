@@ -1,0 +1,18 @@
+{% if pageClass|default('index-page') == 'index-page' %}
+    {% set metaDescription = data.home.metaDescription %}
+    {# on default page #}
+    <link rel="canonical" href="https://{{ global_property_url }}/{{ lang|default('')==''?'':lang~'/' }}" />
+
+{% elseif pageClass|default('index-page') == 'category-page' %}
+    {% set metaDescription = data.categories[catSlug].metaDescription %}
+    <link rel="canonical" href="https://{{ global_property_url }}/{{ catSlug }}/" />
+
+{% elseif pageClass|default('index-page') == 'review-page' %}
+    <link rel="canonical" href="https://{{ global_property_url }}/{{ category.slug}}/{{review.slug}}/" />
+
+{% else %}
+    <link rel="canonical" href="{{ url(pageClass) }}" />
+{% endif %}
+{% if metaDescription|default('') != '' %}
+    <meta name="description" content="{{ metaDescription|raw }}">
+{% endif %}
