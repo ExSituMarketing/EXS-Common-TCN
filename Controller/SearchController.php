@@ -60,7 +60,8 @@ class SearchController extends Controller
                 'data' => $data,
                 'searchResults' => $results,
                 'searchTerm' => $query,
-                'products' => $data['home']->getTopProducts()
+                'products' => $data['home']->getTopProducts(),
+                'pageClass' => 'search-page'
             ));
         } else {
             throw $this->createNotFoundException('Sorry the page does not exist');

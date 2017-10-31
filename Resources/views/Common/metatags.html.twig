@@ -10,6 +10,15 @@
 {% elseif pageClass|default('index-page') == 'review-page' %}
     <link rel="canonical" href="https://{{ global_property_url }}/{{ category.slug}}/{{review.slug}}/" />
 
+{% elseif pageClass|default('index-page') == 'contact-page' %}
+    <link rel="canonical" href="https://{{ url('exsitu_tcn_common_contact_form') }}" />
+
+{% elseif pageClass|default('index-page') == 'contact-success-page' %}
+    <link rel="canonical" href="https://{{ url('exsitu_tcn_common_contact_success') }}" />
+
+{% elseif pageClass|default('index-page') == 'search-page' %}
+    <link rel="canonical" href="https://{{ url('exsitu_tcn_common_search_result') }}" />
+
 {% else %}
     <link rel="canonical" href="{{ url(pageClass) }}" />
 {% endif %}

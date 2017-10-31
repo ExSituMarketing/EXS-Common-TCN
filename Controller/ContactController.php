@@ -40,6 +40,7 @@ class ContactController extends Controller
             'data' => $data,
             'success' => $success,
             'pageTitle' => 'Contact Us',
+            'pageClass' => 'contact-page',
             'robotValue' => 'noindex, follow'
         ]);
     }
@@ -52,6 +53,7 @@ class ContactController extends Controller
             'data' => $data,
             'success' => true,
             'pageTitle' => 'Contact Us',
+            'pageClass' => 'contact-success-page',
             'robotValue' => 'noindex, follow'
         ]);
     }
