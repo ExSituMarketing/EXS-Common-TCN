@@ -20,7 +20,8 @@ class SitemapController extends Controller
         if (!empty($data)) {
             $response = $this->render('@ExsituTcnCommon/Sitemap/sitemap.html.twig', array(
                 'data' => $data,
-                'robotValue' => 'noindex, follow'
+                'robotValue' => 'noindex, follow',
+                'pageClass' => 'topvr_tcn_sitemap'
             ));
 
         } else {
