@@ -13,21 +13,18 @@ use Symfony\Component\Finder\Finder;
  */
 class TcnDataService
 {
-    protected $memcached;
     protected $basePath;
     protected $namespace;
     protected $cacheKey;
 
     /**
      * TcnDataService constructor.
-     * @param \Memcached $memcached
      * @param string $basePath
      * @param string $namespace
      * @param string $cacheKey
      */
-    public function __construct(\Memcached $memcached, $basePath, $namespace, $cacheKey)
+    public function __construct($basePath, $namespace, $cacheKey)
     {
-        $this->memcached = $memcached;
         $this->cacheKey = $cacheKey;
         $this->basePath = $basePath;
         $this->namespace = $namespace;
@@ -38,11 +35,6 @@ class TcnDataService
      */
     public function getAllData()
     {
-        $data = $this->memcached->get($this->cacheKey);
-        if (($data != false) && (array_key_exists('home', $data)) && (!empty($data['home']))) {
-            return $data;
-        }
-
         $cats = $this->getCategories();
         $data = [
             'home' => $this->getHome(),
@@ -51,8 +43,6 @@ class TcnDataService
             'handlers' => $this->getHandlers(),
             'languages' => $this->getLanguages(),
         ];
-
-        $this->memcached->set($this->cacheKey, $data, time() + 3600);
 
         return $data;
     }
