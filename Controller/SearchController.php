@@ -42,10 +42,11 @@ class SearchController extends Controller
     public function indexAction($query)
     {
         $data = $this->get('tcn.data.service')->getAllData();
+        $toLowerQuery = strtolower($query);
 
         if (!empty($data)) {
-            $results = array_filter($data['products'], function($value) use ($query) {
-                if (strpos($value->getSlug(), $query) !== false) {
+            $results = array_filter($data['products'], function($value) use ($toLowerQuery) {
+                if (strpos($value->getSlug(), $toLowerQuery) !== false || strpos(strtolower($value->getName()), $toLowerQuery) !== false) {
                     return $value->getSlug();
                 }
             });
