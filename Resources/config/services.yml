@@ -9,7 +9,6 @@ services:
     tcn.data.service:
         class: exs\TcnCommonBundle\Service\TcnDataService
         arguments:
-          - "@memcached"
           - "%tcn.data.dir%"
           - "%tcn.data.namespace%"
           - "%tcn.data.cacheKey%"
