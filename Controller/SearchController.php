@@ -81,6 +81,7 @@ class SearchController extends Controller
                 //site has a review and a category
 //                if (strlen($product->getOverview()) > 0 && $product->getCategory()) {
 //                    // generate review url
+                // TODO: make sure it's https
 //                    $link = $this->generateUrl('exsitu_tcn_common_review',
 //                        [
 //                            'categorySlug' => $product->getCategory()->getSlug(),

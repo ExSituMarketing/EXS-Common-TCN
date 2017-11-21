@@ -28,6 +28,9 @@ class OpensiteController extends Controller
         $tourlink = $site->getTourlink();
 
         // redirect to the new proper tourlink
-        return $this->redirect($tourlink,302);
+        $response = $this->redirect($tourlink,302);
+        $response->headers->set('X-Robots-Tag', 'noindex');
+
+        return $response;
     }
 }
