@@ -11,10 +11,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class OpensiteController extends Controller
 {
     /**
-     * @param string $slug
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param $slug
+     * @param null $catSlug
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function outAction($slug)
+    public function outAction($slug, $catSlug = null)
     {
         $data = $this->get('tcn.data.service')->getAllData();
 
@@ -25,7 +26,9 @@ class OpensiteController extends Controller
 
         /** @var AbstractSiteModel $site */
         $site = $data['products'][$slug];
-        $tourlink = $site->getTourlink();
+
+        $tourlinks = $site->getTourlink();
+        $tourlink = $this->get('tcn.opensite.manager')->getTourlink($tourlinks, $catSlug);
 
         // redirect to the new proper tourlink
         $response = $this->redirect($tourlink,302);

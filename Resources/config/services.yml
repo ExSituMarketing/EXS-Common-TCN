@@ -13,6 +13,9 @@ services:
           - "%tcn.data.namespace%"
           - "%tcn.data.cacheKey%"
 
+    tcn.opensite.manager:
+            class: exs\TcnCommonBundle\Service\Manager\OpenSiteManager
+
 #    tcn.access_control.service:
 #            class: exs\TcnCommonBundle\Service\AccessControleService
 #            arguments:

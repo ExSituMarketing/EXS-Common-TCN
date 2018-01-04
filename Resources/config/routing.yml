@@ -34,8 +34,8 @@ topvr_tcn_xmlSitemap:
     schemes:  [https|http]
 
 exsitu_tcn_common_opensite:
-    path:  /out/{slug}
-    defaults: { _controller: ExsituTcnCommonBundle:Opensite:out }
+    path:  /out/{slug}/{catSlug}
+    defaults: { _controller: ExsituTcnCommonBundle:Opensite:out, catSlug: null }
     schemes:  [https|http]
 
 exsitu_tcn_common_category:
