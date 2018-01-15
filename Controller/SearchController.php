@@ -98,7 +98,7 @@ class SearchController extends Controller
                 $formatted[] = [
                     'name' => $product->getName(),
                     'link' => $link,
-                    'icon' => $product->getName()//$product->getIcon(),
+                    'slug' => $product->getSlug(),
                 ];
             }
         }
